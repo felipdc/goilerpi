@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/felipdc/goilerpi/src/controllers"
-	"github.com/felipdc/goilerpi/src/services"
+	"github.com/felipdc/goilerpi/controllers"
+	"github.com/felipdc/goilerpi/services"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/felipdc/goilerpi/src/models"
+	"github.com/felipdc/goilerpi/models"
 	"github.com/google/uuid"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"

@@ -5,7 +5,6 @@ RUN apk update && apk add git
 COPY . /app
 WORKDIR /app
 
-RUN ls
 RUN go get -d -v
 
 # EXPOSE 8080

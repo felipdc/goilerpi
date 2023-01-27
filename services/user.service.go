@@ -1,6 +1,6 @@
 package services
 
-import "github.com/felipdc/goilerpi/src/models"
+import "github.com/felipdc/goilerpi/models"
 
 type UserService interface {
 	CreateUser(*models.User) error

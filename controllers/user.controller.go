@@ -3,8 +3,8 @@ package controllers
 import (
 	"net/http"
 
-	"github.com/felipdc/goilerpi/src/models"
-	"github.com/felipdc/goilerpi/src/services"
+	"github.com/felipdc/goilerpi/models"
+	"github.com/felipdc/goilerpi/services"
 	"github.com/gin-gonic/gin"
 )
 
