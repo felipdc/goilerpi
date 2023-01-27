@@ -5,6 +5,7 @@ import (
 	"errors"
 
 	"github.com/felipdc/goilerpi/src/models"
+	"github.com/google/uuid"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -23,13 +24,14 @@ func NewUserService(usercollection *mongo.Collection, ctx context.Context) UserS
 }
 
 func (u *UserServiceImpl) CreateUser(user *models.User) error {
+	user.Id = uuid.NewString()
 	_, err := u.usercollection.InsertOne(u.ctx, user)
 	return err
 }
 
-func (u *UserServiceImpl) GetUser(name *string) (*models.User, error) {
+func (u *UserServiceImpl) GetUser(id *string) (*models.User, error) {
 	var user *models.User
-	query := bson.D{bson.E{Key: "name", Value: name}}
+	query := bson.D{bson.E{Key: "id", Value: id}}
 	err := u.usercollection.FindOne(u.ctx, query).Decode(&user)
 	return user, err
 }
@@ -71,8 +73,8 @@ func (u *UserServiceImpl) UpdateUser(user *models.User) error {
 	return nil
 }
 
-func (u *UserServiceImpl) DeleteUser(name *string) error {
-	filter := bson.D{primitive.E{Key: "name", Value: name}}
+func (u *UserServiceImpl) DeleteUser(id *string) error {
+	filter := bson.D{primitive.E{Key: "id", Value: id}}
 	result, _ := u.usercollection.DeleteOne(u.ctx, filter)
 	if result.DeletedCount != 1 {
 		return errors.New("No matched document found for delete")
