@@ -7,6 +7,8 @@ WORKDIR /app
 
 RUN go get -d -v
 
-# EXPOSE 8080
+RUN go build
 
-# CMD [ "ls /goilerpi/src" ]
+EXPOSE 4000
+
+CMD [ "./goilerpi" ]
